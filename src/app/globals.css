@@ -16,18 +16,84 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  font-family: system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
 }
+*,*::before,*::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  font-family: "Matter", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol";
+  position: relative;
+  min-height: 100%;
+  font-feature-settings: "kern";
+
+}
+
+.text_before_css {
+  transform: translateY(100px) translateZ(0);
+  opacity: 0;
+}
+
+.down_Arrow_before_css {
+  transform: translateY(-100px) translateZ(0);
+  opacity: 0;
+}
+
+.down_Arrow_after_css {
+  transform: none;
+  transition: all 1s ease-in;
+  transition-delay: 4s;
+  opacity: 1;
+}
+
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
+@layer base {
+  @font-face {
+    font-family: 'Matter';
+    font-weight: 700;
+    font-display: swap;
+    src: local("Matter"), url(/fonts/Matter-Bold.woff2) format("woff2"),
+    url(/fonts/Matter-Bold.woff) format("woff"),
+    url(/fonts/Matter-Bold.otf) format("opentype");
+  }
+
+  @font-face {
+    font-family: "Matter";
+    src: local("Matter"), url(/fonts/Matter-Medium.woff2) format("woff2"),
+      url(/fonts/Matter-Medium.woff) format("woff"),
+      url(/fonts/Matter-Medium.otf) format("opentype");
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Matter";
+    src: local("Matter"), url(/fonts/Matter-Regular.woff2) format("woff2"),
+      url(/fonts/Matter-Regular.woff) format("woff"),
+      url(/fonts/Matter-Regular.otf) format("opentype");
+    font-weight: 400;
+    font-display: swap;
+  }
+}
+
+
